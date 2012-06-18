@@ -1,4 +1,6 @@
 GeoScorchServer::Application.routes.draw do
+  resources :positions
+
   resources :users
 
   # The priority is based upon order of creation:
