@@ -43,6 +43,6 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: geo_scorch_test_database
+  database: geo_scorch_prod_database
   username: robert
   pool: 5

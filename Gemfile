@@ -41,4 +41,8 @@ gem 'jquery-rails'
 # Install delay job (used to push jobs to worker queue)
 gem 'delayed_job_active_record'
 
+# Use thing (rather than webrick)
 gem 'thin'
+
+# Authentication gem
+gem 'devise'
