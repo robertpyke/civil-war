@@ -46,3 +46,6 @@ gem 'thin'
 
 # Authentication gem
 gem 'devise'
+
+# Add facebook omniauth support.
+gem "omniauth-facebook"
