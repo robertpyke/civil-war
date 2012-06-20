@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/map
-  def show
+  def map
     @user = User.find(params[:id])
 
     respond_to do |format|
