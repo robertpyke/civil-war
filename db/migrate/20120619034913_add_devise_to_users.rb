@@ -38,8 +38,8 @@ class AddDeviseToUsers < ActiveRecord::Migration
       # t.timestamps
       
       # omniauth
-      t.string provider
-      t.string uid
+      t.string :provider
+      t.string :uid
 
     end
 
