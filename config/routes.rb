@@ -1,5 +1,5 @@
 GeoScorchServer::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :omnioath_callbacks => "users/omnioath_callbacks" }
 
   resources :positions
 
