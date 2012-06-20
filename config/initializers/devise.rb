@@ -82,7 +82,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "7a1fa56c50c9fa632f5ae75b2fc4c1b31338c68db269d481a0eec5aeb2e54ed5f91508ba0c40c42c0b5a039ad5bf35347b3dd041d312320c4c1959aaa4228dc0"
+  # config.pepper = "682d16f1d017c308faa918bd38e82fa8aa83d3407229fdfd9239c00b60eed3d8224f6f17588c50d99f613aff17c662a967ad660a2197df76eddab11f6d30a0f9"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -206,8 +206,6 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
-  require "omniauth-facebook"
-  config.omniauth :facebook, "245482665561715", "a00a3dea095d502b3c536bb797134b7c"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
