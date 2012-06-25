@@ -16,12 +16,15 @@ setup_map = () ->
   mapnik            = new OpenLayers.Layer.OSM
   from_projection   = new OpenLayers.Projection "EPSG:4326"   # Transform from WGS 1984
   to_projection     = new OpenLayers.Projection "EPSG:900913" # to Spherical Mercator Projection
-  position          = new OpenLayers.LonLat(13.41,52.52).transform(from_projection, to_projection)
+  position          = new OpenLayers.LonLat(153,-27.5).transform(from_projection, to_projection)
   zoom              = 10
   tank_vector_layer = new OpenLayers.Layer.Vector("Tank Vectors")
   
+  # Add the base layer
   map.addLayer(mapnik)
+  # Add the vector tank layer
   map.addLayer(tank_vector_layer)
+  # Set the map's center
   map.setCenter(position, zoom )
 
   user_geom   = new OpenLayers.Geometry.Point(0, 0)
@@ -37,7 +40,7 @@ update_position = (position) ->
   transformed_user_position = user_position.transform(from_projection, to_projection)
   user_feature.move transformed_user_position
   map.setCenter transformed_user_position
-  console.log "Updated Position"
+  console.log "Updated Position", position
 
 # GO!
 $(document).ready ->
