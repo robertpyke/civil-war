@@ -33,11 +33,14 @@ ActiveRecord::Schema.define(:version => 20120619034913) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "accuracy"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "positionable_id"
+    t.string   "positionable_type"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "users", :force => true do |t|
+    t.string   "name",                   :default => "", :null => false
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "email",                  :default => "", :null => false
@@ -50,6 +53,8 @@ ActiveRecord::Schema.define(:version => 20120619034913) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

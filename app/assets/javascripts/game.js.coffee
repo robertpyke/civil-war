@@ -40,10 +40,30 @@ update_position = (position) ->
   transformed_user_position = user_position.transform(from_projection, to_projection)
   user_feature.move transformed_user_position
   map.setCenter transformed_user_position
-  console.log "Updated Position", position
+  console.log "Updated Position on Map", position
+
+  ajax_data = {
+    user: {
+      position_attributes: {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      }
+    }
+  }
+
+  $.ajax({
+    type: 'PUT',
+    url: window.get_user().url,
+    data: ajax_data,
+    success: (data, textStatus, jqXHR) ->
+      console.log "Updated user position",
+    dataType: 'json'
+  })
+  console.log("Past Ajax");
 
 # GO!
 $(document).ready ->
+  console.log window.get_user()
   setup_map()
 
   # Check if client supports geolocation api

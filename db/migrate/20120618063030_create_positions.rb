@@ -5,6 +5,9 @@ class CreatePositions < ActiveRecord::Migration
       t.float :longitude
       t.integer :accuracy
 
+      t.integer :positionable_id
+      t.string  :positionable_type
+
       t.timestamps
     end
   end
