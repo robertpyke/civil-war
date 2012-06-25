@@ -1,5 +1,8 @@
+<%= content_tag "div", id: "user_details", data: {url: user_url(@user), id: @user.id, email: @user.email} do %>
+  <p>Logged in as: <%= @user.email %> (<%= link_to "show", @user %>)</p>
+<% end %>
+
 <h1>Geo Scorch</h1>
 
-<p>Logged in as: <%= @user.email %> (<%= link_to "show", @user %>)</p>
 
 <div id='map'></div>
