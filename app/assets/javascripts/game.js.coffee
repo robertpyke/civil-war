@@ -4,49 +4,68 @@
 
 # File globals
 map = null
-from_projection = null
-to_projection = null
-tank_marker_layer = null
-user_geom = null
-user_feature = null
+userMarker = null
+powerLine = null
+power = 0.02
 
 # Set up the map
 setup_map = () ->
-  map               = new OpenLayers.Map "map"
-  mapnik            = new OpenLayers.Layer.OSM
-  from_projection   = new OpenLayers.Projection "EPSG:4326"   # Transform from WGS 1984
-  to_projection     = new OpenLayers.Projection "EPSG:900913" # to Spherical Mercator Projection
-  position          = new OpenLayers.LonLat(153,-27.5).transform(from_projection, to_projection)
-  zoom              = 10
-  tank_vector_layer = new OpenLayers.Layer.Vector("Tank Vectors")
+  map               = new L.Map "map"
+  cloudmade         = new L.TileLayer 'http://{s}.tile.cloudmade.com/66c4371c1b2941e8a77e68b72074c150/997/256/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+      maxZoom: 18
+  }
+  london = new L.LatLng 51.505, -0.09 # geographical point (longitude and latitude)
+  map.setView(london, 13).addLayer(cloudmade)
+
+updatePowerLine = (latitude, longitude) ->
+  userPosition = new L.LatLng latitude, longitude # geographical point (longitude and latitude)
+
+  angle = 30 * (Math.PI/180)
   
-  # Add the base layer
-  map.addLayer(mapnik)
-  # Add the vector tank layer
-  map.addLayer(tank_vector_layer)
-  # Set the map's center
-  map.setCenter(position, zoom )
+  distX = power * Math.cos(angle)
+  distY = power * Math.sin(angle)
 
-  user_geom   = new OpenLayers.Geometry.Point(0, 0)
-#  user_geom   = new OpenLayers.Geometry.Point(position.lon, position.lat)
-  user_feature = new OpenLayers.Feature.Vector user_geom 
-  user_feature.move position
-  tank_vector_layer.addFeatures [user_feature]
+  console.log(distX);
+  console.log(distY);
 
+  p1 = userPosition
+  p2 = new L.LatLng (latitude + distY), (longitude + distX)
+
+  linePoints = [p1, p2]
+
+  if powerLine == null
+    powerLine = new L.Polyline linePoints
+    map.addLayer powerLine
 
 # Update the user's position
-update_position = (position) ->
-  user_position = new OpenLayers.LonLat(position.coords.longitude, position.coords.latitude)
-  transformed_user_position = user_position.transform(from_projection, to_projection)
-  user_feature.move transformed_user_position
-  map.setCenter transformed_user_position
+updatePosition = (position) ->
+  latitude  = position.coords.latitude
+  longitude = position.coords.longitude
+  accuracy  = position.coords.accuracy
+  heading   = position.coords.heading
+  speed     = position.coords.speed
+
+  # Where is the user?
+  userPosition = new L.LatLng latitude, longitude # geographical point (longitude and latitude)
+
+  if userMarker == null
+    userMarker = new L.Marker userPosition
+    map.addLayer userMarker
+    map.setView userPosition, 13
+  else
+    userMarker.setLatLng userPosition
+
+  # Update the power line, as the user has moved
+  updatePowerLine(latitude, longitude)
+    
   console.log "Updated Position on Map", position
 
   ajax_data = {
     user: {
       position_attributes: {
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
+        latitude: latitude,
+        longitude: longitude,
       }
     }
   }
@@ -56,10 +75,10 @@ update_position = (position) ->
     url: window.get_user().url,
     data: ajax_data,
     success: (data, textStatus, jqXHR) ->
-      console.log "Updated user position",
+      console.log "Updated Position in DB",
     dataType: 'json'
   })
-  console.log("Past Ajax");
+  console.log("Started Ajax");
 
 # GO!
 $(document).ready ->
@@ -73,8 +92,7 @@ $(document).ready ->
       (position) ->
         # success  
         console.log "Got Position"
-        update_position position
-        #mapServiceProvider(position.coords.latitude,position.coords.longitude);
+        updatePosition position
       (error) ->
         # failure
         console.error "Couldn't get position"
