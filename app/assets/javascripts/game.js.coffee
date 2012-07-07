@@ -50,7 +50,16 @@ updatePosition = (position) ->
   userPosition = new L.LatLng latitude, longitude # geographical point (longitude and latitude)
 
   if userMarker == null
-    userMarker = new L.Marker userPosition
+    ArmyIcon = L.Icon.extend({
+        iconUrl: 'assets/map_icons/military/jeep.png',
+        iconSize: new L.Point(32, 37),
+        shadowSize: new L.Point(32, 37),
+        iconAnchor: new L.Point(16, 37),
+        popupAnchor: new L.Point(-3, -6)
+    });
+    armyIcon = new ArmyIcon()
+
+    userMarker = new L.Marker(userPosition, {icon: armyIcon});
     map.addLayer userMarker
     map.setView userPosition, 13
   else
