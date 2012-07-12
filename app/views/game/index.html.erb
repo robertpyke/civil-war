@@ -4,11 +4,19 @@
 
   <div id='actions_interface'>
     <div id='attack_interface'>
-      <form id="attack_power_input_form">
-        <label for="attack_power">Power:</label>
-        <input type="text" class="attack_power_input" id="attack_power" value=50 style="border:0; color:#f6931f; font-weight:bold;"/>
+      <form id="attack_input_form">
+        <div class='attack_power'>
+          <label for="attack_power">Power:</label>
+          <input type="text" class="attack_power_input" id="attack_power" value=50 style="border:0; color:#f6931f; font-weight:bold;"/>
+          <div id='attack_power_slider' class='attack_power_slider slider'></div>
+        </div>
+
+        <div class='attack_angle'>
+          <label for="attack_angle">Angle:</label>
+          <input type="text" class="attack_angle_input" id="attack_angle" value=90 style="border:0; color:#f6931f; font-weight:bold;"/>
+          <div id='attack_angle_slider' class='attack_angle_slider slider'></div>
+        </div>
       </form>
-      <div id='attack_power_slider' class='attack_power_slider'></div>
     </div>
   </div>
 </div>

@@ -7,6 +7,7 @@ window.UserModel = Backbone.Model.extend({
     speed: 0
 
     attack_power: 20
+    attack_angle: 90
   }
 
   initialize: () ->

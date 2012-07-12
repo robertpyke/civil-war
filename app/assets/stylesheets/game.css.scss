@@ -13,6 +13,9 @@ body {
 }
 
 #overlay {
+  overflow: auto;
+  max-height: 33%;
+
   margin-top: 0;
   padding-top: 0;
   float: right;
@@ -25,10 +28,12 @@ body {
   top: 0;
   padding: 2em;
 
+  // drop shadow
   -moz-box-shadow: 10px 5px 5px #888;
   -webkit-box-shadow: 10px 5px 5px #888;
   box-shadow: 10px 5px 5px #888;
 
+  // Rounded corners (bottom left and bottom right)
   -moz-border-radius-bottomright: 5px;
   -moz-border-radius-bottomleft: 5px;
   -webkit-border-bottom-right-radius: 5px;
@@ -56,22 +61,18 @@ body {
   float: left;
 }
 
-#actions_interface {
-}
-
-#attack_power_slider {
+#actions_interface .slider {
   width: 8em;
   display: inline-block;
   vertical-align: text-bottom;
 }
 
-#attack_power_input_form {
-  display: inline;
-  float: left;
-}
-
-#attack_power_input_form input {
+#attack_input_form input {
   width: 3em;
   margin-right: 1em;
 }
 
+#attack_input_form label {
+  width: 4em;
+  display: inline-block;
+}
