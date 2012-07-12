@@ -26,18 +26,19 @@ _setupPositionWatcher = () ->
     false
 
 $ ->
-  # Create a view for the overall game (incl. assocaited game map)
-  window.gameView = new window.MapView({
-    id: 'map'
-  })
-  gameView.setupMap()
+  if document.getElementById 'map'
+    # Create a view for the overall game (incl. assocaited game map)
+    window.gameView = new window.MapView({
+      id: 'map'
+    })
+    gameView.setupMap()
 
-  # Create a model to represent the user
-  window.user = new window.UserModel({})
+    # Create a model to represent the user
+    window.user = new window.UserModel({})
 
-  # Associate the userMarker with the user model
-  window.userMarkerView = new window.UserMarkerView({
-    model: window.user
-  })
-  window.userMarkerView.render()
-  _setupPositionWatcher()
+    # Associate the userMarker with the user model
+    window.userMarkerView = new window.UserMarkerView({
+      model: window.user
+    })
+    window.userMarkerView.render()
+    _setupPositionWatcher()
