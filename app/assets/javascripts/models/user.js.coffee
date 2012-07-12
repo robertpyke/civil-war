@@ -5,6 +5,8 @@ window.UserModel = Backbone.Model.extend({
     accuracy: 99999999
     heading: 0
     speed: 0
+
+    attack_power: 20
   }
 
   initialize: () ->
