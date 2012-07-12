@@ -58,3 +58,20 @@ body {
 
 #actions_interface {
 }
+
+#power_slider {
+  width: 8em;
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
+#power_input_form {
+  display: inline;
+  float: left;
+}
+
+#power_input_form input {
+  width: 3em;
+  margin-right: 1em;
+}
+
