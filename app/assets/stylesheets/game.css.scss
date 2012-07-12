@@ -18,15 +18,28 @@ body {
   float: right;
   z-index: 2;
   margin: 0 1em 0 0;
-  opacity: 0.8;
+  opacity: 0.9;
   background-color: white;
   position: absolute;
   right: 0;
   top: 0;
   padding: 2em;
-  -moz-box-shadow: 10px 10px 5px #888;
-  -webkit-box-shadow: 10px 10px 5px #888;
-  box-shadow: 10px 10px 5px #888;
+
+  -moz-box-shadow: 10px 5px 5px #888;
+  -webkit-box-shadow: 10px 5px 5px #888;
+  box-shadow: 10px 5px 5px #888;
+
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+  border-bottom: 2px solid gold;
+  border-left: 2px solid gold;
+  border-right: 2px solid gold;
+
 }
 
 #overlay:hover {

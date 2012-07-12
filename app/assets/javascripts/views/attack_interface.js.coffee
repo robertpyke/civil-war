@@ -36,5 +36,6 @@ window.AttackInterfaceView = Backbone.View.extend({
         # Fire the change event on the power input
         view._getPowerInput().change()
     )
+    $(this._getPowerSlider()).draggable()
 
 })
