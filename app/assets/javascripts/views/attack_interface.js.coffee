@@ -12,12 +12,13 @@ window.AttackInterfaceView = Backbone.View.extend({
     this._getAttackAngleSlider().data('view', this)
     this._getAttackAngleSlider().data('setup', false)
 
-    # when the attack_power on the model changes, re-render
+    # when the attack_power or attack_angle on the model changes, re-render
     this.model.on("change:attack_power", this.renderAttackPowerDiv, this)
     this.model.on("change:attack_angle", this.renderAttackAngleDiv, this)
 
   events: {
     "change .attack_power_input": "_attackPowerInputChanged"
+    "change .attack_angle_input": "_attackAngleInputChanged"
   }
 
   ###
@@ -61,7 +62,7 @@ window.AttackInterfaceView = Backbone.View.extend({
   # Angle
   ###
 
-  # when attack_power input changes, update the attack_power on the model
+  # when attack_angle input changes, update the attack_angle on the model
   _attackAngleInputChanged: () ->
     this.model.set('attack_angle', this._getAttackAngleInput().val())
 
@@ -100,7 +101,5 @@ window.AttackInterfaceView = Backbone.View.extend({
     this.renderAttackAngleDiv()
 
     this
-
-
 
 })
