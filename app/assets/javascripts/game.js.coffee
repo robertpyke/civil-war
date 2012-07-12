@@ -4,6 +4,8 @@
 
 # File globals
 
+# Code to watch the user position
+# NOTE: Leaflet has methods to do this as well
 _setupPositionWatcher = () ->
   # Check if client supports geolocation api
   if navigator.geolocation
@@ -26,6 +28,7 @@ _setupPositionWatcher = () ->
     false
 
 $ ->
+  # If we are looking at the map page...
   if document.getElementById 'map'
     # Create a view for the overall game (incl. assocaited game map)
     window.gameView = new window.MapView({
@@ -34,7 +37,14 @@ $ ->
     gameView.setupMap()
 
     # Create a model to represent the user
-    window.user = new window.UserModel({})
+    window.user = new window.UserModel({
+      # TODO
+      # ----
+      #
+      # Set the user info based on the data in the user div.
+      # Set up a global containing these vars,
+      # then set them on the user model.
+    })
 
     # Associate the userMarker with the user model
     window.userMarkerView = new window.UserMarkerView({
@@ -50,5 +60,3 @@ $ ->
     window.attackInterfaceView.render()
 
     _setupPositionWatcher()
-
-
