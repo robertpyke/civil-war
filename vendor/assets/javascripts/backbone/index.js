@@ -1,4 +1,4 @@
-// This is the index manifest file for OpenLayers.
+// This is the index manifest file for backbone.
 //
 // Any JavaScript/Coffee file within this directory can be referenced here using a relative path.
 //

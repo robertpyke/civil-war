@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require open_layers
 //= require underscore
 //= require backbone
+//= require leaflet
 //= require_tree .
