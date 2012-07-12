@@ -28,11 +28,11 @@ window.UserMarkerView = Backbone.View.extend({
 
     if 'userMarker' of this
       this.userMarker.setLatLng userPosition
-      # focus the map on this position
-      window.gameView.map.setView userPosition, 13
     else
       armyIcon = new ArmyIcon()
       this.userMarker = new L.Marker(userPosition, {icon: armyIcon});
       window.gameView.map.addLayer this.userMarker
+      # focus the map on this position
+      window.gameView.map.setView userPosition, 13
 
 })

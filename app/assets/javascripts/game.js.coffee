@@ -40,7 +40,6 @@ $ ->
     window.userMarkerView = new window.UserMarkerView({
       model: window.user
     })
-    window.userMarkerView.render()
 
     # Associate the userMarker with the user model
     window.attackInterfaceView = new window.AttackInterfaceView({
