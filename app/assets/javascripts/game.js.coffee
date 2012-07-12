@@ -41,4 +41,15 @@ $ ->
       model: window.user
     })
     window.userMarkerView.render()
+
+    # Associate the userMarker with the user model
+    window.attackInterfaceView = new window.AttackInterfaceView({
+      model: window.user
+      id: 'attack_interface'
+      el: document.getElementById('attack_interface')
+    })
+    window.attackInterfaceView.render()
+
     _setupPositionWatcher()
+
+

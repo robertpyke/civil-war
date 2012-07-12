@@ -14,11 +14,12 @@ window.UserMarkerView = Backbone.View.extend({
   className: "user_marker"
 
   initialize: () ->
+    # When the latitude or longitude of the user changes, re-render the marker
     this.model.on("change:latitude change:longitude", this.render, this)
 
   _getLatitude: () ->
     this.model.get('latitude')
-  
+
   _getLongitude: () ->
     this.model.get('longitude')
 
