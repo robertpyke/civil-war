@@ -59,4 +59,9 @@ $ ->
     })
     window.attackInterfaceView.render()
 
+    # Associate the AttackPowerLine with the user model
+    window.attackPowerLineView= new window.AttackPowerLineView({
+      model: window.user
+    })
+
     _setupPositionWatcher()
