@@ -32,7 +32,11 @@ ActiveRecord::Schema.define(:version => 20120619034913) do
   create_table "positions", :force => true do |t|
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "accuracy"
+    t.float    "altitude"
+    t.float    "accuracy"
+    t.float    "altitudeAccuracy"
+    t.float    "heading"
+    t.float    "speed"
     t.integer  "positionable_id"
     t.string   "positionable_type"
     t.datetime "created_at",        :null => false

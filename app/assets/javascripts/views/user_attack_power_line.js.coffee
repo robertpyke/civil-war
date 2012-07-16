@@ -8,13 +8,13 @@ window.AttackPowerLineView = Backbone.View.extend({
   initialize: () ->
 
     # when the attack_power or attack_angle on the model changes, re-render
-    this.model.on("change:attack_power change:attack_angle change:latitude change:longitude", this.render, this)
+    this.model.on("change:attack_power change:attack_angle change:position", this.render, this)
 
   render: () ->
     powerDivFactor = 1000
 
-    latitude  = this.model.get('latitude')
-    longitude = this.model.get('longitude')
+    latitude  = this.model.getLatitude()
+    longitude = this.model.getLongitude()
 
     userPosition = new L.LatLng(latitude, longitude)
 

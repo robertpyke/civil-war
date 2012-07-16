@@ -1,11 +1,14 @@
 window.UserModel = Backbone.Model.extend({
-  defaults: {
-    latitude: 0
-    longitude: 0
-    accuracy: 99999999
-    heading: 0
-    speed: 0
+  urlRoot: '/users'
 
+  defaults: {
+    position: {
+      latitude: 0
+      longitude: 0
+      accuracy: 99999999
+      heading: 0
+      speed: 0
+    }
     attack_power: 20
     attack_angle: 90
   }
@@ -13,10 +16,23 @@ window.UserModel = Backbone.Model.extend({
   initialize: () ->
     this
 
+  getLatitude: ->
+    @get('position')['latitude']
+
+  getLongitude: ->
+    @get('position')['longitude']
 
   updatePosition: (position) ->
     # Set all the key/value pairs avail in position coords
-    this.set( position.coords )
+    this.set( {
+      position: position.coords
+    })
     this
 
+  # Nest the position attributes correctly
+  toJSON: ->
+    attrs = _.clone(@attributes)
+    attrs.position_attributes = _.clone @attributes.position
+    delete attrs.position
+    attrs
 })
