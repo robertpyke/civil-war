@@ -18,9 +18,9 @@
 //= require backbone
 //= require leaflet
 //
-// Require our models, collections and then views
+// Require our models, views and then collections
 //
 //= require_tree ./models
-//= require_tree ./collections
 //= require_tree ./views
+//= require_tree ./collections
 //= require_tree .

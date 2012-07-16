@@ -65,7 +65,19 @@ $ ->
     _setupPositionWatcher()
 
     window.usersCollection = new window.UserCollection()
+
+    addOne = (user) ->
+      view = new window.UserMarkerView({model: user})
+      view.render()
+
+    addAll = () ->
+      window.usersCollection.each(addOne)
+
+    window.usersCollection.bind('add', addOne, this)
+    window.usersCollection.bind('reset', addAll, this)
+
     window.usersCollection.fetch()
+
 
     null
 

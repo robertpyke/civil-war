@@ -1,7 +1,7 @@
 ###
-# View to represent user position
+# View to represent other users' positions
 ###
-window.JeepIcon = L.Icon.extend({
+window.ArmyIcon = L.Icon.extend({
     iconUrl: 'assets/map_icons/military/jeep.png',
     iconSize: new L.Point(32, 37),
     shadowSize: new L.Point(32, 37),
@@ -29,7 +29,7 @@ window.UserMarkerView = Backbone.View.extend({
     if 'userMarker' of this
       this.userMarker.setLatLng userPosition
     else
-      armyIcon = new JeepIcon()
+      armyIcon = new ArmyIcon()
       this.userMarker = new L.Marker(userPosition, {icon: armyIcon});
       window.gameView.map.addLayer this.userMarker
       # focus the map on this position
