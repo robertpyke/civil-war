@@ -4,9 +4,9 @@
 window.JeepIcon = L.Icon.extend({
     iconUrl: 'assets/map_icons/military/blue/jeep.png',
     shadowUrl: 'assets/marker-shadow.png',
-    iconSize: new L.Point(40, 40),
+    iconSize: new L.Point(48, 48),
     shadowSize: new L.Point(41, 41),
-    iconAnchor: new L.Point(20, 20),
+    iconAnchor: new L.Point(24, 24),
     popupAnchor: new L.Point(-3, -32)
 });
 
@@ -36,7 +36,7 @@ window.UserMarkerView = Backbone.View.extend({
     if 'userMarker' of this
       this.userMarker.setLatLng userPosition
     else
-      icon = this._createIcon(@model.getGravatarIconUrl({size: 80}))
+      icon = this._createIcon(@model.getGravatarIconUrl({size: 48}))
       @userMarker = new L.Marker(userPosition, {icon: icon, @zIndexOffset});
       window.gameView.map.addLayer @userMarker
       # focus the map on this position

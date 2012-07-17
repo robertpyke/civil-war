@@ -88,3 +88,18 @@ body {
 .leaflet-marker-pane {
   z-index: 5 !important;
 }
+
+.leaflet-marker-pane img {
+  //  -webkit-mask-box-image: url("/assets/marker_mask_48.svg") round;
+  //  mask: url("/assets/marker_mask_48.svg");
+
+  // drop shadow
+  -moz-box-shadow: 4px 2px 2px #888;
+  -webkit-box-shadow: 4px 2px 2px #888;
+  box-shadow: 4px 2px 2px #888;
+
+  // Rounded corners
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+}
