@@ -32,7 +32,9 @@ window.UserModel = Backbone.Model.extend({
   getGravatarIconUrl: (options = {}) ->
     _defaultSize = 80
     size = options['size'] || _defaultSize
+    email = @get('email')
     hash = md5 @get('email')
+    console.log("hash", email, hash)
     url = "http://www.gravatar.com/avatar/" + hash + "?s=" + size
 
   # Nest the position attributes correctly
