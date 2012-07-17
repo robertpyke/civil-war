@@ -4,8 +4,15 @@
 window.JeepIcon = L.Icon.extend({
     iconUrl: 'assets/map_icons/military/blue/jeep.png',
     shadowUrl: 'assets/marker-shadow.png',
-    iconSize: new L.Point(48, 48),
+    iconSize: new L.Point(32, 37),
     shadowSize: new L.Point(41, 41),
+    iconAnchor: new L.Point(16, 36),
+    popupAnchor: new L.Point(-3, -32)
+});
+
+window.GravatarIcon = L.Icon.extend({
+    shadowUrl: null,
+    iconSize: new L.Point(48, 48),
     iconAnchor: new L.Point(24, 24),
     popupAnchor: new L.Point(-3, -32)
 });
@@ -28,7 +35,7 @@ window.UserMarkerView = Backbone.View.extend({
     this.model.getLongitude()
 
   _createIcon: (url) ->
-    new JeepIcon(url)
+    new window.GravatarIcon(url)
 
   render: () ->
     userPosition = new L.LatLng(this._getLatitude(), this._getLongitude())
