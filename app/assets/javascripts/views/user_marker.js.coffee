@@ -3,6 +3,7 @@
 ###
 window.JeepIcon = L.Icon.extend({
     iconUrl: 'assets/map_icons/military/blue/jeep.png',
+    shadowUrl: 'assets/marker-shadow.png',
     iconSize: new L.Point(32, 37),
     shadowSize: new L.Point(32, 37),
     iconAnchor: new L.Point(16, 37),
