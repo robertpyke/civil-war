@@ -41,6 +41,7 @@ $ ->
     # Create a model to represent the user
     window.user = new window.UserModel({
       id: $userDetails.data('id')
+      email: $userDetails.data('email')
     })
     window.user.fetch()
 
