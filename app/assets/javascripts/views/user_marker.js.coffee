@@ -13,6 +13,8 @@ window.UserMarkerView = Backbone.View.extend({
   tagName: "div"
   className: "user_marker"
 
+  zIndexOffset: 10
+
 
   initialize: () ->
     # When the latitude or longitude of the user changes, re-render the marker
@@ -34,7 +36,7 @@ window.UserMarkerView = Backbone.View.extend({
       this.userMarker.setLatLng userPosition
     else
       icon = this._createIcon()
-      @userMarker = new L.Marker(userPosition, {icon: icon});
+      @userMarker = new L.Marker(userPosition, {icon: icon, @zIndexOffset});
       window.gameView.map.addLayer @userMarker
       # focus the map on this position
       window.gameView.map.setView userPosition, 13
