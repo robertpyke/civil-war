@@ -3,6 +3,9 @@
   <% end %>
 
   <div id='actions_interface'>
+    <div id='auth_interface'>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+    </div>
     <div id='attack_interface'>
       <form id="attack_input_form">
         <div class='attack_power'>

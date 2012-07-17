@@ -67,8 +67,9 @@ $ ->
     window.usersCollection = new window.UserCollection()
 
     addOne = (user) ->
-      view = new window.UserMarkerView({model: user})
-      view.render()
+      if user.id != window.user.id
+        view = new window.UserMarkerView({model: user})
+        view.render()
 
     addAll = () ->
       window.usersCollection.each(addOne)
