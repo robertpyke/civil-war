@@ -9,6 +9,7 @@ window.EnemyJeepIcon = L.Icon.extend({
 
 window.EnemyUserMarkerView = window.UserMarkerView.extend({
   zIndexOffset: 0
+  zoomToMarkerOnCreation: false
 
   _createIcon: () ->
     new EnemyJeepIcon()
