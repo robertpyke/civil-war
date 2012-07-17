@@ -64,21 +64,20 @@ $ ->
 
     _setupPositionWatcher()
 
-    window.usersCollection = new window.UserCollection()
+    window.enemyUsersCollection = new window.UserCollection()
 
     addOne = (user) ->
       if user.id != window.user.id
-        view = new window.UserMarkerView({model: user})
+        view = new window.EnemyUserMarkerView({model: user})
         view.render()
 
     addAll = () ->
-      window.usersCollection.each(addOne)
+      window.enemyUsersCollection.each(addOne)
 
-    window.usersCollection.bind('add', addOne, this)
-    window.usersCollection.bind('reset', addAll, this)
+    window.enemyUsersCollection.bind('add', addOne, this)
+    window.enemyUsersCollection.bind('reset', addAll, this)
 
-    window.usersCollection.fetch()
-
+    window.enemyUsersCollection.fetch()
 
     null
 

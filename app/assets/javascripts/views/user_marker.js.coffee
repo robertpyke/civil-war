@@ -2,7 +2,7 @@
 # View to represent user position
 ###
 window.JeepIcon = L.Icon.extend({
-    iconUrl: 'assets/map_icons/military/jeep.png',
+    iconUrl: 'assets/map_icons/military/blue/jeep.png',
     iconSize: new L.Point(32, 37),
     shadowSize: new L.Point(32, 37),
     iconAnchor: new L.Point(16, 37),
@@ -12,6 +12,7 @@ window.JeepIcon = L.Icon.extend({
 window.UserMarkerView = Backbone.View.extend({
   tagName: "div"
   className: "user_marker"
+
 
   initialize: () ->
     # When the latitude or longitude of the user changes, re-render the marker
@@ -23,15 +24,18 @@ window.UserMarkerView = Backbone.View.extend({
   _getLongitude: () ->
     this.model.getLongitude()
 
+  _createIcon: () ->
+    new JeepIcon()
+
   render: () ->
     userPosition = new L.LatLng(this._getLatitude(), this._getLongitude())
 
     if 'userMarker' of this
       this.userMarker.setLatLng userPosition
     else
-      armyIcon = new JeepIcon()
-      this.userMarker = new L.Marker(userPosition, {icon: armyIcon});
-      window.gameView.map.addLayer this.userMarker
+      icon = this._createIcon()
+      @userMarker = new L.Marker(userPosition, {icon: icon});
+      window.gameView.map.addLayer @userMarker
       # focus the map on this position
       window.gameView.map.setView userPosition, 13
 

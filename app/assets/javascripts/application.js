@@ -21,6 +21,8 @@
 // Require our models, views and then collections
 //
 //= require_tree ./models
+//= require      ./views/user_marker.js.coffee
+//= require      ./views/enemy_user_marker.js.coffee
 //= require_tree ./views
 //= require_tree ./collections
 //= require_tree .
