@@ -29,13 +29,23 @@ window.UserModel = Backbone.Model.extend({
     })
     this
 
+  # See: http://en.gravatar.com/site/implement/images/
+  # for gravatar request API
   getGravatarIconUrl: (options = {}) ->
     _defaultSize = 80
     size = options['size'] || _defaultSize
     email = @get('email')
     hash = md5 @get('email')
     console.log("hash", email, hash)
-    url = "http://www.gravatar.com/avatar/" + hash + "?s=" + size
+
+    # d options inclue:
+    #   404
+    #   mm: mystery man
+    #   identicon
+    #   monsterid
+    #   wavatar
+    #   retro
+    url = "http://www.gravatar.com/avatar/" + hash + "?s=" + size + "&d=wavatar"
 
   # Nest the position attributes correctly
   toJSON: ->
