@@ -80,3 +80,11 @@ body {
 #auth_interface {
   text-align: right;
 }
+
+.leaflet-overlay-pane {
+  z-index: 7 !important;
+}
+
+.leaflet-marker-pane {
+  z-index: 5 !important;
+}
