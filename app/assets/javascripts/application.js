@@ -17,6 +17,7 @@
 //= require underscore
 //= require backbone
 //= require leaflet
+//= require md5
 //
 // Require our models, views and then collections
 //

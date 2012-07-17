@@ -1,3 +1,6 @@
 [submodule "vendor/assets/javascripts/json/submodule"]
 	path = vendor/assets/javascripts/json/submodule
 	url = https://github.com/douglascrockford/JSON-js.git
+[submodule "vendor/assets/javascripts/md5/submodule"]
+	path = vendor/assets/javascripts/md5/submodule
+	url = https://github.com/blueimp/JavaScript-MD5.git

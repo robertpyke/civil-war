@@ -29,6 +29,12 @@ window.UserModel = Backbone.Model.extend({
     })
     this
 
+  getGravatarIconUrl: (options = {}) ->
+    _defaultSize = 80
+    size = options['size'] || _defaultSize
+    hash = md5 @get('email')
+    url = "http://www.gravatar.com/avatar/" + hash + "?s=" + size
+
   # Nest the position attributes correctly
   toJSON: ->
     attrs = _.clone(@attributes)
