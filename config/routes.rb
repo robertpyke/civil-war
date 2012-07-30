@@ -11,10 +11,7 @@ GeoScorchServer::Application.routes.draw do
 
   resources :positions
 
-  resources :users do
-    member do
-      get 'map'
-    end
+  resources :users, :only => [:index, :show] do
   end
 
   resource :game, :only => [:index] do
