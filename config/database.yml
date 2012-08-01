@@ -29,20 +29,20 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: geo_scorch_dev_database
+  database: civil_war_dev_database
   username: robert
   pool: 5
 
 test:
   adapter: postgresql
   encoding: unicode
-  database: geo_scorch_test_database
+  database: civil_war_test_database
   username: robert
   pool: 5
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: geo_scorch_prod_database
+  database: civil_war_prod_database
   username: robert
   pool: 5
