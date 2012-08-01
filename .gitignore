@@ -7,10 +7,25 @@
 # Ignore bundler config
 /.bundle
 
-# Ignore the default SQLite database.
-/db/*.sqlite3
-/config/database.yml
+# Rails specific
+*.sqlite3
+config/database.yml
+log/*
+tmp/*
 
-# Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
+# generic files to ignore
+*~
+*.lock
+*.swp
+*.out
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
