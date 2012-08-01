@@ -18,6 +18,7 @@
 //= require backbone
 //= require leaflet
 //= require md5
+//= require qunit
 //
 // Require our models, views and then collections
 //
